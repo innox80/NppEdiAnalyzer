@@ -1,5 +1,8 @@
 # NppEdiAnalyzer
-Notepad++ plugin to analyze EDI standard formats (Edifact/X12)
+
+EDI Plugin for Notepad++ to analyze EDI standard formats (Edifact/X12)
+
+Alpha version ... still in early developing phase
 
 
 Used Libraries
