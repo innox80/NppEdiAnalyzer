@@ -110,16 +110,17 @@ namespace Kbg.Demo.Namespace
             //            bool check0nInit                      // optional. Make this menu item be checked visually
             //            );
             
-            PluginBase.SetCommand(0, "Hello Notepad++", hello);
+            //PluginBase.SetCommand(0, "Hello Notepad++", hello);
             
-            PluginBase.SetCommand(1, "Hello (with FX)", helloFX);
-            PluginBase.SetCommand(2, "What is Notepad++?", WhatIsNpp);
+            //PluginBase.SetCommand(1, "Hello (with FX)", helloFX);
+            //PluginBase.SetCommand(2, "What is Notepad++?", WhatIsNpp);
 
             // Here you insert a separator
-            PluginBase.SetCommand(3, "---", null);
+            //PluginBase.SetCommand(3, "---", null);
 
             // Shortcut :
             // Following makes the command bind to the shortcut Alt-F
+            /*
             PluginBase.SetCommand(4, "Current Full Path", insertCurrentFullPath, new ShortcutKey(false, true, false, Keys.F));
             PluginBase.SetCommand(5, "Current File Name", insertCurrentFileName);
             PluginBase.SetCommand(6, "Current Directory", insertCurrentDirectory);
@@ -141,9 +142,9 @@ namespace Kbg.Demo.Namespace
             PluginBase.SetCommand(16, "---", null);
 
             PluginBase.SetCommand(17, "Print Scroll and Row Information", PrintScrollInformation);
-            
+            */
 
-            //PluginBase.SetCommand(0, "Dockable Dialog Demo", DockableDlgDemo); idFrmGotToLine = 15;
+            PluginBase.SetCommand(0, "Dockable Dialog Demo", DockableDlgDemo); idFrmGotToLine = 0;
         }
 
         /// <summary>
