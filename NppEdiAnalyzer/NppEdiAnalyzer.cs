@@ -109,9 +109,9 @@ namespace Kbg.Demo.Namespace
             //            ShortcutKey *shortcut,                // optional. Define a shortcut to trigger this command
             //            bool check0nInit                      // optional. Make this menu item be checked visually
             //            );
-            
+
             //PluginBase.SetCommand(0, "Hello Notepad++", hello);
-            
+
             //PluginBase.SetCommand(1, "Hello (with FX)", helloFX);
             //PluginBase.SetCommand(2, "What is Notepad++?", WhatIsNpp);
 
@@ -143,13 +143,28 @@ namespace Kbg.Demo.Namespace
 
             PluginBase.SetCommand(17, "Print Scroll and Row Information", PrintScrollInformation);
             */
-
-            PluginBase.SetCommand(0, "Dockable Dialog Demo", DockableDlgDemo); idFrmGotToLine = 0;
+  
+            PluginBase.SetCommand(0, "Format EDIFACT", formatEdifact, new ShortcutKey(false, true, false, Keys.Down));
+            PluginBase.SetCommand(1, "Un-Format EDIFACT", unFormatEdifact, new ShortcutKey(false, true, false, Keys.Up));
+            PluginBase.SetCommand(2, "Dockable Dialog Demo", DockableDlgDemo); idFrmGotToLine = 2;
         }
 
         /// <summary>
         /// 
         /// </summary>
+        /// 
+
+        static void formatEdifact()
+        {
+            Util.ReplaceAll("'", "'\r\n", editor);
+        }
+
+        static void unFormatEdifact()
+        {
+            Util.ReplaceAll("'\r\n", "'", editor);
+            Util.ReplaceAll("'\n", "'", editor);
+        }
+
         static void PrintScrollInformation()
         {
             ScrollInfo scrollInfo = editor.GetScrollInfo(ScrollInfoMask.SIF_RANGE | ScrollInfoMask.SIF_TRACKPOS | ScrollInfoMask.SIF_PAGE, ScrollInfoBar.SB_VERT);
