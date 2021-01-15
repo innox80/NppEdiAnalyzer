@@ -36,6 +36,8 @@ using Kbg.NppPluginNET.PluginInfrastructure;
         public static void ReplaceAll(string searchText, string replaceText, IScintillaGateway editor)
         {
             var pos = 0;
+            editor.GotoLine(0);
+            editor.SetTargetStart(0);
             // Iterate until text is no longer found
             while (pos >= 0)
             {
