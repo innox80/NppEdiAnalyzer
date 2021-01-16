@@ -47,6 +47,8 @@ namespace Kbg.NppPluginNET
             if (notification.Header.Code == (uint)SciMsg.SCN_DOUBLECLICK)
             {
                 Kbg.Demo.Namespace.Main.EDIAnalizeSelectedLine();
+                Kbg.Demo.Namespace.Main.frmGoToLine.displaySegmentOnListview();
+               //Demo.Namespace.frmGoToLine.
             }
         }
 
@@ -65,7 +67,7 @@ namespace Kbg.Demo.Namespace
         static string keyName = "doCloseTag";
         static bool doCloseTag = false;
         static string sessionFilePath = @"C:\text.session";
-        static frmGoToLine frmGoToLine = null;
+        static public frmGoToLine frmGoToLine = null;
         static internal int idFrmGotToLine = -1;
         static Bitmap tbBmp = Properties.Resources.star;
         static Bitmap tbBmp_tbTab = Properties.Resources.star_bmp;
@@ -499,6 +501,9 @@ The current scroll ratio is {Math.Round(scrollPercentage, 2)}%.
             */
 
             //MessageBox.Show(mySegment);
+
+            //clear
+            SegmentList.Clear();
 
             //Add Segment
             SegmentList.Add(new SegmentStructure("file", 1, "G0", 0, mySegment, ""));
