@@ -176,11 +176,16 @@ namespace Kbg.Demo.Namespace
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        public void displaySegmentOnListview()
         {
-    
+            listView1.Clear();
+            listView1.Items.Clear();
+            listView1.Columns.Clear();
+            listView1.Refresh();
+            //listView1.DataBindings();
 
-            
+
+
             ColumnHeader header1 = listView1.Columns.Add("Element", 20 * (int)listView1.Font.SizeInPoints, HorizontalAlignment.Left);
             ColumnHeader header2 = listView1.Columns.Add("Component", 20 * (int)listView1.Font.SizeInPoints, HorizontalAlignment.Left);
             ColumnHeader header3 = listView1.Columns.Add("Value", 20 * (int)listView1.Font.SizeInPoints, HorizontalAlignment.Left);
@@ -197,7 +202,7 @@ namespace Kbg.Demo.Namespace
             // insert all the items into the listview at the last available row  
             listView1.Items.Add(item1);
             */
-            
+
             foreach (SegmentStructure mySegment in Main.SegmentList)
             {
                 foreach (ElementStructure myElement in mySegment.ElementsList)
@@ -217,8 +222,11 @@ namespace Kbg.Demo.Namespace
 
                 }
             }
+        }
 
-
+        private void button6_Click(object sender, EventArgs e)
+        {
+            displaySegmentOnListview();
         }
 
         private void frmGoToLine_Load(object sender, EventArgs e)
