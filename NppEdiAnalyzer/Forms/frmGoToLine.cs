@@ -186,9 +186,9 @@ namespace Kbg.Demo.Namespace
 
 
 
-            ColumnHeader header1 = listView1.Columns.Add("Element", 20 * (int)listView1.Font.SizeInPoints, HorizontalAlignment.Left);
-            ColumnHeader header2 = listView1.Columns.Add("Component", 20 * (int)listView1.Font.SizeInPoints, HorizontalAlignment.Left);
-            ColumnHeader header3 = listView1.Columns.Add("Value", 20 * (int)listView1.Font.SizeInPoints, HorizontalAlignment.Left);
+            ColumnHeader header1 = listView1.Columns.Add("Value", 20 * (int)listView1.Font.SizeInPoints, HorizontalAlignment.Left);
+            ColumnHeader header2 = listView1.Columns.Add("Element", 20 * (int)listView1.Font.SizeInPoints, HorizontalAlignment.Left);
+            ColumnHeader header3 = listView1.Columns.Add("Component", 20 * (int)listView1.Font.SizeInPoints, HorizontalAlignment.Left);
 
             // create the subitems to add to the list   
             /*
@@ -205,19 +205,36 @@ namespace Kbg.Demo.Namespace
 
             foreach (SegmentStructure mySegment in Main.SegmentList)
             {
+                lblSegmentName.Text = mySegment.sTag + " " + mySegment.sDescription;
+
+
                 foreach (ElementStructure myElement in mySegment.ElementsList)
                 {
-                    ListViewItem item1 = new ListViewItem(myElement.sDescription, 0);
+                    /*ListViewItem item1 = new ListViewItem(myElement.sDescription, 0);
                     item1.SubItems.Add("");
                     item1.SubItems.Add(myElement.sValue);
-                    listView1.Items.Add(item1);
+                    listView1.Items.Add(item1);*/
+
+                    if (myElement.sValue != null || chkShowEmpty.Checked == true)
+                    {
+
+                        ListViewItem item1 = new ListViewItem(myElement.sValue, 0);
+                        item1.SubItems.Add(myElement.sDescription);
+                        item1.SubItems.Add("");
+                        listView1.Items.Add(item1);
+
+                    }
+
 
                     foreach (ComponentStructure myComponent in myElement.ComponentList)
                     {
-                        ListViewItem item2 = new ListViewItem("", 0);
+                        if (myComponent.sValue != "" || chkShowEmpty.Checked == true)
+                        {
+                            ListViewItem item2 = new ListViewItem(myComponent.sValue, 0);
+                        item2.SubItems.Add("");
                         item2.SubItems.Add(myComponent.sDescription);
-                        item2.SubItems.Add(myComponent.sValue);
                         listView1.Items.Add(item2);
+                        }
                     }
 
                 }
