@@ -512,8 +512,12 @@ The current scroll ratio is {Math.Round(scrollPercentage, 2)}%.
 
             try
             {
+                string curAssemblyFolder = new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+                curAssemblyFolder = curAssemblyFolder.Replace(".dll", ".db");
 
-                SQLiteConnection db = new SQLiteConnection(@"Data Source=C:\code\NotepadPlusPlusPluginPack\EDIFACT.db;Pooling=true;FailIfMissing=false;Version=3");
+                //SQLiteConnection db = new SQLiteConnection(@"Data Source=C:\code\NotepadPlusPlusPluginPack\EDIFACT.db;Pooling=true;FailIfMissing=false;Version=3");
+
+                SQLiteConnection db = new SQLiteConnection(@"Data Source=" + curAssemblyFolder + ";Pooling=true;FailIfMissing=false;Version=3");
                 db.Open();
 
                 var selectElementsCommand = new SQLiteCommand("select * from VW_Segment_Elements where Segment_TAG = @SegmentTag order by Element_Position", db);
@@ -587,7 +591,14 @@ The current scroll ratio is {Math.Round(scrollPercentage, 2)}%.
                     //if there is no components in the hierarcy the value is assigned to the element
                     if (iNumComponent == 0)
                     {
-                        SegmentList[0].ElementsList[iNumElement].sValue = myStringArray[iNumElement + 1][0];
+                        try
+                        {
+                            SegmentList[0].ElementsList[iNumElement].sValue = myStringArray[iNumElement + 1][0];
+                        }
+                        catch (Exception Myerr)
+                        {
+                            System.Diagnostics.Debug.WriteLine(Myerr.Message);
+                        }
                     }
 
 
