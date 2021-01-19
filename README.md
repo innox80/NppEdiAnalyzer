@@ -1,4 +1,6 @@
+<head>
 <meta name="google-site-verification" content="AgIQOJKU2mlM85Jr9mWSHyXl2MRlk5nTNGXzmHLMZHA" />
+</head>
 
 # NppEdiAnalyzer
 
