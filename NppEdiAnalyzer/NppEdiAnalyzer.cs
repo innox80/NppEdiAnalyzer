@@ -46,12 +46,23 @@ namespace Kbg.NppPluginNET
                 Kbg.Demo.Namespace.Main.doInsertHtmlCloseTag((char)notification.Character);
             }
             //MI 20210102 intecept dblClick on the window text
-            if (notification.Header.Code == (uint)SciMsg.SCN_DOUBLECLICK)
+            /*if (notification.Header.Code == (uint)SciMsg.SCN_DOUBLECLICK)
             {
                 Kbg.Demo.Namespace.Main.EDIAnalizeSelectedLine();
                 Kbg.Demo.Namespace.Main.frmGoToLine.displaySegmentOnListview();
                //Demo.Namespace.frmGoToLine.
             }
+            */
+            if (notification.Header.Code == (uint)SciMsg.SCN_DOUBLECLICK)
+            {
+                if (Kbg.Demo.Namespace.Main.frmGoToLine.Visible) 
+                { 
+                    Kbg.Demo.Namespace.Main.EDIAnalizeSelectedLine();
+                    Kbg.Demo.Namespace.Main.frmGoToLine.displaySegmentOnListview();
+                }
+            }
+
+            // if (!frmGoToLine.Visible)
         }
 
         internal static string PluginName { get { return Kbg.Demo.Namespace.Main.PluginName; } }
@@ -458,7 +469,7 @@ The current scroll ratio is {Math.Round(scrollPercentage, 2)}%.
 
                 NppTbData _nppTbData = new NppTbData();
                 _nppTbData.hClient = frmGoToLine.Handle;
-                _nppTbData.pszName = "Go To Line #";
+                _nppTbData.pszName = "Npp EDI Analyzer";
                 // the dlgDlg should be the index of funcItem where the current function pointer is in
                 // this case is 15.. so the initial value of funcItem[15]._cmdID - not the updated internal one !
                 _nppTbData.dlgID = idFrmGotToLine;
