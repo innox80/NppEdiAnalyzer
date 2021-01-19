@@ -35,6 +35,8 @@ namespace Kbg.NppPluginNET
         static internal void SetToolBarIcon()
         {
             Kbg.Demo.Namespace.Main.SetToolBarIcon();
+            Kbg.Demo.Namespace.Main.SetToolBarIconFormat();
+            Kbg.Demo.Namespace.Main.SetToolBarIconUnFormat();
         }
 
         public static void OnNotification(ScNotification notification)
@@ -69,7 +71,11 @@ namespace Kbg.Demo.Namespace
         static string sessionFilePath = @"C:\text.session";
         static public frmGoToLine frmGoToLine = null;
         static internal int idFrmGotToLine = -1;
+        static internal int idMnuFormat = -1;
+        static internal int idMnuUnformat = -1;
         static Bitmap tbBmp = Properties.Resources.star;
+        static Bitmap tbBmpFormat = Properties.Resources.format;
+        static Bitmap tbBmpUnFormat = Properties.Resources.unformat;
         static Bitmap tbBmp_tbTab = Properties.Resources.star_bmp;
         static Icon tbIcon = null;
         static IScintillaGateway editor = new ScintillaGateway(PluginBase.GetCurrentScintilla());
@@ -146,9 +152,9 @@ namespace Kbg.Demo.Namespace
             PluginBase.SetCommand(17, "Print Scroll and Row Information", PrintScrollInformation);
             */
   
-            PluginBase.SetCommand(0, "Format EDIFACT", formatEdifact, new ShortcutKey(false, true, false, Keys.Down));
-            PluginBase.SetCommand(1, "Un-Format EDIFACT", unFormatEdifact, new ShortcutKey(false, true, false, Keys.Up));
-            PluginBase.SetCommand(2, "Dockable Dialog Demo", DockableDlgDemo); idFrmGotToLine = 2;
+            PluginBase.SetCommand(0, "Format EDIFACT (Alt+Down)", formatEdifact, new ShortcutKey(false, true, false, Keys.Down)); idMnuFormat = 0;
+            PluginBase.SetCommand(1, "Un-Format EDIFACT (Alt+Up)", unFormatEdifact, new ShortcutKey(false, true, false, Keys.Up)); idMnuUnformat = 1;
+            PluginBase.SetCommand(2, "Structure View", DockableDlgDemo); idFrmGotToLine = 2;
         }
 
         /// <summary>
@@ -187,6 +193,27 @@ The current scroll ratio is {Math.Round(scrollPercentage, 2)}%.
             Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_ADDTOOLBARICON, PluginBase._funcItems.Items[idFrmGotToLine]._cmdID, pTbIcons);
             Marshal.FreeHGlobal(pTbIcons);
         }
+
+        static internal void SetToolBarIconFormat()
+        {
+            toolbarIcons tbIcons = new toolbarIcons();
+            tbIcons.hToolbarBmp = tbBmpFormat.GetHbitmap();
+            IntPtr pTbIcons = Marshal.AllocHGlobal(Marshal.SizeOf(tbIcons));
+            Marshal.StructureToPtr(tbIcons, pTbIcons, false);
+            Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_ADDTOOLBARICON, PluginBase._funcItems.Items[idMnuFormat]._cmdID, pTbIcons);
+            Marshal.FreeHGlobal(pTbIcons);
+        }
+
+        static internal void SetToolBarIconUnFormat()
+        {
+            toolbarIcons tbIcons = new toolbarIcons();
+            tbIcons.hToolbarBmp = tbBmpUnFormat.GetHbitmap();
+            IntPtr pTbIcons = Marshal.AllocHGlobal(Marshal.SizeOf(tbIcons));
+            Marshal.StructureToPtr(tbIcons, pTbIcons, false);
+            Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_ADDTOOLBARICON, PluginBase._funcItems.Items[idMnuUnformat]._cmdID, pTbIcons);
+            Marshal.FreeHGlobal(pTbIcons);
+        }
+
 
         static internal void PluginCleanUp()
         {
