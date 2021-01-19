@@ -73,5 +73,24 @@ namespace Kbg.Demo.Namespace.Properties {
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}
+
+		internal static System.Drawing.Bitmap format
+		{
+			get
+			{
+				object obj = ResourceManager.GetObject("format", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+
+		internal static System.Drawing.Bitmap unformat
+		{
+			get
+			{
+				object obj = ResourceManager.GetObject("unformat", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+
 	}
 }
