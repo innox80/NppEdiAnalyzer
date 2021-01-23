@@ -1,8 +1,4 @@
-<head>
-<meta name="google-site-verification" content="AgIQOJKU2mlM85Jr9mWSHyXl2MRlk5nTNGXzmHLMZHA" />
-</head>
-
-# NppEdiAnalyzer
+# Npp Edi Analyzer
 
 EDI Plugin for Notepad++ to analyze EDI standard formats (Edifact/X12)
 
