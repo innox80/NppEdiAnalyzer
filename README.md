@@ -1,13 +1,10 @@
 # Npp Edi Analyzer
-
-EDI Plugin for Notepad++ to analyze EDI standard formats (Edifact/X12)
-
-Alpha version ... still in early developing phase
-
-
-# Notepad++ 
 NotePad++ is a very nice and fast text editor for programming that I like to use for many tasks.
 I decided to write a plugins that help me in the analisys of EDIFACT and X12 EDI formats
+
+NppEdiAnalyzer is a Plugin for Notepad++ to analyze EDI standard formats (Edifact/X12)
+
+Alpha version ... still in early developing phase (stay tuned....)
 
 
 ## Disclaimer:
