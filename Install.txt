@@ -1,0 +1,36 @@
+
+
+This zip files contains the following files (binaries for Notepad++ 32bit and Notepad++ 64bit):
+
+- Install.txt
+- License.txt
+- 64bit 
+  + NppEdiAnalyzer.dll
+  + NppEdiAnalyzer.db
+- 32bit 
+  + NppEdiAnalyzer.dll
+  + NppEdiAnalyzer.db
+ 
+
+Please read the License.txt before proceeding.
+
+
+Install instuction steps for 64bit version:
+-------------------------------------------
+1. Go under your Notepad++ install directory and locate the "plugins" directory  (normally C:\Program Files\Notepad++\plugins)
+2. Creare a new directory under the existing "plugins" and name it "NppEdiAnalyzer"
+3. Copy the two files from the 64bit directory NppEdiAnalyzer.dll and NppEdiAnalyzer.db into the "NppEdiAnalyzer" folder
+4. Download the official Sqlite 64bit binaries for .NET Framework 4.6 http://system.data.sqlite.org/downloads/1.0.113.0/sqlite-netFx46-binary-bundle-x64-2015-1.0.113.0.zip
+5. Unpack the downloaded zip and locate the file with name "System.Data.SQLite.dll"
+6. Copy the .dll file into the Notepad++ home folder (normally C:\Program Files\Notepad++)
+
+
+Install instuction steps for 32bit version:
+-------------------------------------------
+1. Go under your Notepad++ install directory and locate the "plugins" directory  (normally C:\Program Files (x86)\Notepad++\plugins\)
+2. Creare a new directory under the existing "plugins" and name it "NppEdiAnalyzer"
+3. Copy the two files from the 32bit directory NppEdiAnalyzer.dll and NppEdiAnalyzer.db into the "NppEdiAnalyzer" folder
+4. Download the official Sqlite 32bit binaries for .NET Framework 4.6 http://system.data.sqlite.org/downloads/1.0.113.0/sqlite-netFx46-binary-bundle-Win32-2015-1.0.113.0.zip
+5. Unpack the downloaded zip and locate the file with name "System.Data.SQLite.dll"
+6. Copy the .dll file into the Notepad++ home folder (normally C:\Program Files (x86)\Notepad++)
+
