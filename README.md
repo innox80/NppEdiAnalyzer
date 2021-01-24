@@ -21,5 +21,4 @@ Licensed under GPL v3
 
 https://github.com/kbilsted/NotepadPlusPlusPluginPack.Net
 
-https://github.com/opless/csharp-sqlite
 
