@@ -10,9 +10,10 @@ Used Libraries
 
 ### NppPlugin.NET v0.6-0.7 by UFO-Pu55y and later by kbilsted
 
-Base for making Notepad++ plugins in C#
+Base for making Notepad++ plugins in C# 
+Licensed under GPL v3
 
 https://github.com/kbilsted/NotepadPlusPlusPluginPack.Net
 
 https://github.com/opless/csharp-sqlite
-Licensed under GPL v3
+
