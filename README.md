@@ -13,4 +13,5 @@ Used Libraries
 Base for making Notepad++ plugins in C#
 
 https://github.com/kbilsted/NotepadPlusPlusPluginPack.Net
+https://github.com/opless/csharp-sqlite
 Licensed under GPL v3
