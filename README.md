@@ -24,5 +24,5 @@ https://github.com/kbilsted/NotepadPlusPlusPluginPack.Net
 
 Thanks to
 ---------
- + Don Ho , that creates the fantastic Notepad++ 
+ + Don Ho , for the fantastic Notepad++ 
  + UFO-Pu55y and kbilsted for the NppPlugin.NET package
