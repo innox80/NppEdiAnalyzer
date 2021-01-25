@@ -24,6 +24,14 @@ Licensed under GPL v3
 
 https://github.com/kbilsted/NotepadPlusPlusPluginPack.Net
 
+Future Improvements
+-------------------
+* Code Cleaning
+* Reference tables data completion
+* Highlight of mandatory fields
+* Edifact release selector
+* Support for X12
+* Replacing the listview with a property-window
 
 Thanks to
 ---------
