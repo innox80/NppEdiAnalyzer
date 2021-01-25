@@ -26,7 +26,7 @@ https://github.com/kbilsted/NotepadPlusPlusPluginPack.Net
 
 Future Improvements
 -------------------
-* Code Cleaning
+* Bug Fixing & Code Cleaning
 * Reference tables data completion
 * Highlight of mandatory fields
 * Edifact release selector
