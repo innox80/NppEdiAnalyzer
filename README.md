@@ -6,7 +6,7 @@ NppEdiAnalyzer is a Plugin for Notepad++ to analyze EDI standard formats (Edifac
 
 DOWNLOAD: Beta 1.0 version is out for 32 and 64 bit --> https://github.com/innox80/NppEdiAnalyzer/releases/tag/1.0-beta
 
-<img src="https://github.com/innox80/NppEdiAnalyzer/blob/main/resources/NppEdiAnalyzerSplash.gif" align="left" height="700" width="556" >
+<img src="https://github.com/innox80/NppEdiAnalyzer/blob/main/resources/NppEdiAnalyzerSplash.gif" align="left" height="556" width="700" >
 
 
 
