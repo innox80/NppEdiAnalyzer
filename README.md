@@ -4,7 +4,8 @@ I decided to write a plugins for the analysis of EDIFACT and X12 EDI files forma
 
 NppEdiAnalyzer is a Plugin for Notepad++ to analyze EDI standard formats (Edifact/X12)
 
-DOWNLOAD: Beta 1.0 version for 32 and 64 bit --> https://github.com/innox80/NppEdiAnalyzer/releases/tag/1.0-beta
+DOWNLOAD: Beta 1.0 version for 32 and 64 bit (NppEdiAnalyzer-beta-1.0.zip
+) and follow the Install.txt instructions --> https://github.com/innox80/NppEdiAnalyzer/releases/tag/1.0-beta
 
 <img src="https://github.com/innox80/NppEdiAnalyzer/blob/main/resources/NppEdiAnalyzerSplash.gif" align="center" height="556" width="700" >
 
