@@ -37,5 +37,5 @@ Future Improvements
 
 Thanks to
 ---------
- + Don Ho , for the fantastic Notepad++ 
- + UFO-Pu55y and kbilsted for the NppPlugin.NET package
+ + Don Ho , for the fantastic Notepad++ (https://notepad-plus-plus.org/)
+ + UFO-Pu55y and kbilsted for the NppPlugin.NET package (https://github.com/kbilsted/NotepadPlusPlusPluginPack.Net)
