@@ -33,6 +33,7 @@ Future Improvements
 * Edifact release selector
 * Support for X12
 * Replacing the listview with a property-window
+* Add editor to add and modify EDI definition database
 
 Thanks to
 ---------
