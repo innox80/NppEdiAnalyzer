@@ -167,7 +167,7 @@ namespace Kbg.Demo.Namespace
             PluginBase.SetCommand(0, "Format EDIFACT (Alt+Down)", formatEdifact, new ShortcutKey(false, true, false, Keys.Down)); idMnuFormat = 0;
             PluginBase.SetCommand(1, "Un-Format EDIFACT (Alt+Up)", unFormatEdifact, new ShortcutKey(false, true, false, Keys.Up)); idMnuUnformat = 1;
             PluginBase.SetCommand(2, "Format X12 (Alt+Left)", formatX12, new ShortcutKey(false, true, false, Keys.Left)); idMnuX12Format = 2;
-            PluginBase.SetCommand(2, "Structure View", DockableDlgDemo); idFrmGotToLine = 3;
+            PluginBase.SetCommand(3, "Structure View", DockableDlgDemo); idFrmGotToLine = 3;
         }
 
         /// <summary>
