@@ -53,26 +53,13 @@ namespace Kbg.NppPluginNET
                //Demo.Namespace.frmGoToLine.
             }
             */
-
-            Boolean isFormVisible = false;
-
             if (notification.Header.Code == (uint)SciMsg.SCN_DOUBLECLICK)
             {
-                try
-                {
-                    isFormVisible = Kbg.Demo.Namespace.Main.frmGoToLine.Visible;
+                if (Kbg.Demo.Namespace.Main.frmGoToLine.Visible) 
+                { 
+                    Kbg.Demo.Namespace.Main.EDIAnalizeSelectedLine();
+                    Kbg.Demo.Namespace.Main.frmGoToLine.displaySegmentOnListview();
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine("{0} Exception caught.", e);
-                }
-
-                if (isFormVisible == true)
-                    { 
-                        Kbg.Demo.Namespace.Main.EDIAnalizeSelectedLine();
-                        Kbg.Demo.Namespace.Main.frmGoToLine.displaySegmentOnListview();
-                    }
-
             }
 
             // if (!frmGoToLine.Visible)
@@ -97,6 +84,7 @@ namespace Kbg.Demo.Namespace
         static internal int idFrmGotToLine = -1;
         static internal int idMnuFormat = -1;
         static internal int idMnuUnformat = -1;
+        static internal int idMnuX12Format = -1;
         static Bitmap tbBmp = Properties.Resources.star;
         static Bitmap tbBmpFormat = Properties.Resources.format;
         static Bitmap tbBmpUnFormat = Properties.Resources.unformat;
@@ -175,10 +163,11 @@ namespace Kbg.Demo.Namespace
 
             PluginBase.SetCommand(17, "Print Scroll and Row Information", PrintScrollInformation);
             */
-  
+
             PluginBase.SetCommand(0, "Format EDIFACT (Alt+Down)", formatEdifact, new ShortcutKey(false, true, false, Keys.Down)); idMnuFormat = 0;
             PluginBase.SetCommand(1, "Un-Format EDIFACT (Alt+Up)", unFormatEdifact, new ShortcutKey(false, true, false, Keys.Up)); idMnuUnformat = 1;
-            PluginBase.SetCommand(2, "Structure View", DockableDlgDemo); idFrmGotToLine = 2;
+            PluginBase.SetCommand(2, "Format X12 (Alt+Left)", formatX12, new ShortcutKey(false, true, false, Keys.Left)); idMnuX12Format = 2;
+            PluginBase.SetCommand(2, "Structure View", DockableDlgDemo); idFrmGotToLine = 3;
         }
 
         /// <summary>
@@ -195,6 +184,11 @@ namespace Kbg.Demo.Namespace
         {
             Util.ReplaceAll("'\r\n", "'", editor);
             Util.ReplaceAll("'\n", "'", editor);
+        }
+
+        static void formatX12()
+        {
+            Util.ReplaceAll("~", "~\r\n", editor);
         }
 
         static void PrintScrollInformation()
@@ -520,10 +514,6 @@ The current scroll ratio is {Math.Round(scrollPercentage, 2)}%.
 
         static internal void EDIAnalizeSelectedLine()
         {
-
-            //clear
-            SegmentList.Clear();
-
             /*
             editor.SetSearchFlags(FindOption.NONE);
             editor.SetTargetStart(Math.Max(editor.GetCurrentPos(), editor.GetAnchor()));
@@ -541,41 +531,32 @@ The current scroll ratio is {Math.Round(scrollPercentage, 2)}%.
 
             myString = editor.GetCurLine(myInt);
 
-            if (myString != "")
+            mySegment = myString.Substring(0, 3);
+
+            var myStringArray = myString.Split('+').Select(x => x.Split(':')).ToArray();
+
+            //List<SegmentStructure> SegmentList = new List<SegmentStructure>();
+
+            //SegmentStructure[] Segments = new SegmentStructure[1]
+
+            /*
+            SegmentList.Add(new SegmentStructure("file",1,"G0",0, mySegment,"","val"));
+            ElementStructure myElement = new ElementStructure("TAG", "Descri");
+            SegmentList[0].ElementsList.Add(myElement);
+            */
+
+            //MessageBox.Show(mySegment);
+
+            //clear
+            SegmentList.Clear();
+
+            //Add Segment
+            SegmentList.Add(new SegmentStructure("file", 1, "G0", 0, mySegment, ""));
+
+
+
+            try
             {
-
-                mySegment = myString.Substring(0, 3);
-
-                //Remove line terminator
-                myString = myString.Replace("\r", "").Replace("\n", "");
-                if (myString.Substring(myString.Length - 1, 1) == "'")
-                {
-                    myString = myString.Substring(0, myString.Length - 1);
-                }
-
-                var myStringArray = myString.Split('+').Select(x => x.Split(':')).ToArray();
-
-                //List<SegmentStructure> SegmentList = new List<SegmentStructure>();
-
-                //SegmentStructure[] Segments = new SegmentStructure[1]
-
-                /*
-                SegmentList.Add(new SegmentStructure("file",1,"G0",0, mySegment,"","val"));
-                ElementStructure myElement = new ElementStructure("TAG", "Descri");
-                SegmentList[0].ElementsList.Add(myElement);
-                */
-
-                //MessageBox.Show(mySegment);
-
-
-
-                //Add Segment
-                SegmentList.Add(new SegmentStructure("file", 1, "G0", 0, mySegment, ""));
-
-
-
-                //try
-                //{
                 string curAssemblyFolder = new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath;
                 curAssemblyFolder = curAssemblyFolder.Replace(".dll", ".db");
 
@@ -676,20 +657,16 @@ The current scroll ratio is {Math.Round(scrollPercentage, 2)}%.
                 db.Close();
 
 
-                //}
-                /*
-                catch (Exception Myerr)
-                {
-                    // Something unexpected went wrong.
-                    System.Diagnostics.Debug.WriteLine(Myerr.Message);
-                    // Maybe it is also necessary to terminate / restart the application.
-                }
-                */
-
-
             }
-        }
+            catch (Exception Myerr)
+            {
+                // Something unexpected went wrong.
+                System.Diagnostics.Debug.WriteLine(Myerr.Message);
+                // Maybe it is also necessary to terminate / restart the application.
+            }
 
+
+        }
 
     }
 }
